@@ -1,0 +1,113 @@
+<style type="text/css">
+    body {
+        background-color: rgb(79, 207, 227);
+        color:rgb(0, 0, 0);
+        font-family: Helvetica;
+        text-align: center;
+    }
+
+    hr {width: 25%;}
+    h1 {color: white;}
+</style>
+<div class='box'>
+    <div class='box-form'>
+        <div class='box-login-tab'></div>
+        <div class='box-login-title'>
+            <div class='i i-login'></div>
+            <h2>IE Sources</h2>
+        </div>
+        <div class='box-login'>
+            <div class='fieldset-body' id='login_form'>
+            
+
+                <form id="uploadForm"
+                    action="https://script.google.com/macros/s/AKfycbzHh-w-guylgBeZE77JnMJTZw0D4ELPut9Ux2Qqms6DzLuA-QR32ELJvA3vH9wMlj1s/exec"
+                    method="POST">
+                    <input type="hidden" value="" name="fileContent" id="fileContent">
+                    <input type="hidden" value="" name="filename" id="filename">
+                    <br>
+
+
+                    <br>
+                    <div id="row1">
+            
+
+                        <div id="i-course">
+                            <p class='field' style="padding-left: 10px;">
+                                <label> Course :</label>
+                                <select required name="course" id="course" style="padding-left: 10px">
+                                    <option value="" selected="selected">Select course</option>
+                                    <option value="IE255">IE255</option>
+                                <option value="IE200">IE200</option>
+                                <option value="IE201">IE201</option>
+                                <option value="IE202">IE202</option>
+                                <option value="IE256">IE256</option>
+                                <option value="IE311">IE311</option>
+                                <option value="IE321">IE321</option>
+                                <option value="IE331">IE331</option>
+                                <option value="IE332">IE332</option>
+                                <option value="IE322">IE322</option>
+                                <option value="IE323">IE323</option>
+                                <option value="IE341">IE341</option>
+                                <option value="IE351">IE351</option>
+                                <option value="IE342">IE342</option>
+                                <option value="IE352">IE352</option>
+                                <option value="IE411">IE411</option>
+                                <option value="IE422">IE422</option>
+                                <option value="IE432">IE432</option>
+                                <option value="IE431">IE431</option>
+                                <option value="IE451">IE451</option>
+                                <option value="IE499">IE499</option>
+                                <option value="IE395">IE395</option>
+                                <option value="IE441">IE441</option>
+                                <option value="IE453">IE453</option>
+                                </select>
+                                <span id='valida' class='i i-warning'></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div id="i-type">
+                        <p class='field'>
+                            <label> File type :</label>
+                            <select required name="type" id="type">
+                                <option value="" selected="selected">Select Type</option>
+                                <option value="Slide">Slide</option>
+                                <option value="TestBank">TestBank</option>
+                                <option value="Quiz">Quiz</option>
+                                <option value="Project">Project</option>
+                                <option value="Assignment">Assignment</option>
+                                <option value="Tutorial">Tutorial</option>
+                                <option value="Lab">Lab</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <span id='valida' class='i i-close'></span>
+                        </p>
+                    </div>
+                    
+                    <div id="i-note">
+                        
+                        <p class='field'><input required id="attach" name="attach" type="file" /></p>
+                    </div>
+
+                   
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+    <input value="Submit" type="button" onclick="UploadFile();" />
+  
+  <script>
+      function UploadFile() {
+        var reader = new FileReader();
+        var file = document.getElementById('attach').files[0];
+        reader.onload = function() {
+      document.getElementById('fileContent').value=reader.result;
+      document.getElementById('filename').value=file.name;
+      document.getElementById('uploadForm').submit();
+      }
+      reader.readAsDataURL(file);
+  }
+  </script>
